@@ -351,7 +351,7 @@ class AMIE(ida_idaapi.plugin_t, ida_idp.IDP_Hooks, ida_kernwin.UI_Hooks):
             self.arch = AArch32()
 
     def plugin_loaded(self, plugin_info):
-        if plugin_info.name == "Hex-Rays Decompiler":
+        if plugin_info.name.startswith("Hex-Rays Decompiler"):
             if ida_hexrays.init_hexrays_plugin():
                 self.hexrays_support = True
                 ida_hexrays.install_hexrays_callback(self.hxe_callback)
